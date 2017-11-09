@@ -2,4 +2,4 @@ This repository serves only to generate combined code on rearthedocs for [SpiNNa
  
 Documentation
 =============
-[![readthedoc status](https://readthedocs.org/projects/spinnaker-graphfrontend-combined/badge/)](http://spinnaker-graphfrontend-combined.readthedocs.io)
+[http://spinnaker-graphfrontend-combined.readthedocs.io](http://spinnaker-graphfrontend-combined.readthedocs.io)
