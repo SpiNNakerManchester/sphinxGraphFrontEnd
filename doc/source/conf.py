@@ -387,4 +387,3 @@ list_module("pacman")
 list_module("data_specification", "data_spec_sender")
 list_module("spinn_front_end_common")
 list_module("spinnaker_graph_front_end")
-
