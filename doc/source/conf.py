@@ -38,22 +38,14 @@ extensions = [
 
 ds_link = 'http://dataspecification.readthedocs.io/en/latest/'
 fe_link = 'http://spinnfrontendcommon.readthedocs.io/en/latest/'
-fge_link = 'https://readthedocs.org/projects/spinnakergraphfrontend/'
-intersphinx_mapping = {'spinn_machine':
-                       ('http://spinnmachine.readthedocs.io/en/latest/',
-                           None),
-                       'spinn_storage_handlers':
-                           ('http://spinnmachine.readthedocs.io/en/latest/',
-                            None),
-                       'spinnman':
-                           ('http://spinnman.readthedocs.io/en/latest/',
-                            None),
-                       'pacman': ('http://pacman.readthedocs.io/en/latest/',
-                                  None),
-                       'data_specification': (ds_link, None),
-                       'spinn_front_end_common': (fe_link, None),
-                       'spinnaker_graph_front_end': (fge_link, None)
-                       }
+gfe_link = 'https://readthedocs.org/projects/spinnakergraphfrontend/'
+intersphinx_mapping = {
+    'spinn_machine': ('http://spinnmachine.readthedocs.io/en/latest/', None),
+    'spinnman': ('http://spinnman.readthedocs.io/en/latest/', None),
+    'pacman': ('http://pacman.readthedocs.io/en/latest/', None),
+    'data_specification': (ds_link, None),
+    'spinn_front_end_common': (fe_link, None),
+    'spinnaker_graph_front_end': (gfe_link, None)}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
