@@ -34,18 +34,26 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.mathjax',
 ]
 
-ds_link = 'http://dataspecification.readthedocs.io/en/latest/'
-fe_link = 'http://spinnfrontendcommon.readthedocs.io/en/latest/'
-gfe_link = 'https://readthedocs.org/projects/spinnakergraphfrontend/'
+_READTHEDOCS_PATTERN = 'https://{}.readthedocs.io/en/latest/'
 intersphinx_mapping = {
-    'spinn_machine': ('http://spinnmachine.readthedocs.io/en/latest/', None),
-    'spinnman': ('http://spinnman.readthedocs.io/en/latest/', None),
-    'pacman': ('http://pacman.readthedocs.io/en/latest/', None),
-    'data_specification': (ds_link, None),
-    'spinn_front_end_common': (fe_link, None),
-    'spinnaker_graph_front_end': (gfe_link, None)}
+    'python': ('https://docs.python.org/3.6', None),
+    'numpy': ("https://numpy.org/doc/stable/", None),
+    'maplotlib': ('https://matplotlib.org', None),
+    'spinn_utilities': (_READTHEDOCS_PATTERN.format('spinnutils'), None),
+    'spinn_machine': (_READTHEDOCS_PATTERN.format('spinnmachine'), None),
+    'spinnman': (_READTHEDOCS_PATTERN.format('spinnman'), None),
+    'pacman': (_READTHEDOCS_PATTERN.format('pacman'), None),
+    'data_specification': (
+        _READTHEDOCS_PATTERN.format('dataspecification'), None),
+    'spalloc': (_READTHEDOCS_PATTERN.format('spalloc'), None),
+    'spinn_front_end_common': (
+        _READTHEDOCS_PATTERN.format('spinnfrontendcommon'), None),
+    'spinnaker_graph_front_end': (
+        _READTHEDOCS_PATTERN.format('spinnakergraphfrontend'), None)}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -195,6 +203,10 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'SpiNNakerGraphFrontEndManchesterdoc'
 
+# Where to get the mathjax javascript library from because the default is
+# horribly outdated in some versions of Sphinx.
+mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
+
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -213,9 +225,9 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'SpiNNakerManchester.tex',
-   u'SpiNNaker GraphFrontEnd Manchester Documentation',
-   u'', 'manual'),
+    ('index', 'SpiNNakerManchester.tex',
+     u'SpiNNaker GraphFrontEnd Manchester Documentation',
+     u'', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -259,10 +271,10 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'SpiNNakerGraphFrontEndManchester',
-   u'SpiNNaker GraphFrontEnd Manchester Documentation',
-   u'', 'SpiNNakerGraphFrontEndManchester', '',
-   'Miscellaneous'),
+    ('index', 'SpiNNakerGraphFrontEndManchester',
+     u'SpiNNaker GraphFrontEnd Manchester Documentation',
+     u'', 'SpiNNakerGraphFrontEndManchester', '',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
@@ -373,7 +385,6 @@ def list_module(module_name, exclude=None):
 
 list_module("spinn_utilities")
 list_module("spinn_machine")
-list_module("spinn_storage_handlers")
 list_module("spinnman")
 list_module("pacman")
 list_module("data_specification", "data_spec_sender")
