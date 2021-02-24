@@ -1,13 +1,20 @@
 SpiNNaker Graph Front End
 =========================
 
-These pages document the main Manchester python code for the SpiNNakerGraphFrontEnd branch of the SpiNNaker_ Project which can be found on github_
+These pages document SpiNNakerGraphFrontEnd 6, a library for building
+applications for the SpiNNaker_ platform, which can be found on github_.
+Although the individual compute nodes of a SpiNNaker system are comparatively
+slow, there are a very large number of them available and the interconnect
+between them is optimised for sending small source-routed multicast packets
+(either with just the source information or with an extra payload word) where
+SpiNNaker scales much better than a more traditional MPI-based parallel
+program.
 
 An alternative way to run on SpiNNaker_ is using PyNN_.
 
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
 .. _github: https://github.com/SpiNNakerManchester
-.. _PyNN_ http://spinnaker8manchester.readthedocs.io/en/latest/index.html
+.. _PyNN: http://spinnaker8manchester.readthedocs.io/en/latest/index.html
 
 SpiNNUtils
 ----------
