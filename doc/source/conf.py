@@ -480,4 +480,5 @@ list_module("spinnman")
 list_module("pacman")
 list_module("data_specification")
 list_module("spinn_front_end_common")
-list_module("spinnaker_graph_front_end", ["examples/*"])
+list_module("spinnaker_graph_front_end", [
+    "examples/*", "utilities/simulator_vertex.py"])
