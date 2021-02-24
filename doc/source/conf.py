@@ -468,7 +468,9 @@ def list_module(module_name, filters=None):
     source = os.path.dirname(__import__(module_name).__file__)
     if filters is None:
         filters = _filtered_files(module_name, source)
-    apidoc.main(['-o', module_name, source, *filters])
+    arguments = ['-o', module_name, source, *filters]
+    print("arguments:", arguments)
+    apidoc.main(arguments)
 
 
 def setup(app):
