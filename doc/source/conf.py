@@ -471,19 +471,7 @@ def list_module(module_name, filters=None):
     else:
         # apidoc tries to turn relative pathnames into absolute ones, wrongly
         filters = (os.path.join(source, e) for e in filters)
-    arguments = ['-o', module_name, source, *filters]
-    print("arguments:", arguments)
-    apidoc.main(arguments)
-
-
-def setup(app):
-    def decide_to_skip(app, what, name, obj, skip, options):
-        if what == 'module' and "example" in name:
-            print("Last ditch: skipping", what, name)
-            return True
-        return skip
-
-    app.connect('autodoc-skip-member', decide_to_skip)
+    apidoc.main(['-o', module_name, source, *filters])
 
 
 list_module("spinn_utilities")
@@ -492,14 +480,4 @@ list_module("spinnman")
 list_module("pacman")
 list_module("data_specification")
 list_module("spinn_front_end_common")
-
-
-_orig = apidoc.is_excluded
-def _patched(root, excludes):
-    result = _orig(root, excludes)
-    print(f"test: is_excluded({root},{excludes}) = {result}")
-    return result
-apidoc.is_excluded = _patched
-
-
 list_module("spinnaker_graph_front_end", ["examples/*"])
