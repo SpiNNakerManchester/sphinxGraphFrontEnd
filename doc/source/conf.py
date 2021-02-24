@@ -14,7 +14,7 @@
 
 import sys
 import os
-from sphinx.ext import apidoc
+import sphinx.ext
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -470,7 +470,7 @@ def list_module(module_name, filters=None):
         filters = _filtered_files(module_name, source)
     arguments = ['-o', module_name, source, *filters]
     print("arguments:", arguments)
-    apidoc.main(arguments)
+    sphinx.ext.apidoc.main(arguments)
 
 
 def setup(app):
@@ -489,4 +489,14 @@ list_module("spinnman")
 list_module("pacman")
 list_module("data_specification")
 list_module("spinn_front_end_common")
+
+
+_orig = sphinx.ext.apidoc.is_excluded
+def _patched(root, excludes):
+    result = _orig(root, excludes)
+    print(f"test: is_excluded({root},{excludes}) = {result}")
+    return result
+sphinx.ext.apidoc.is_excluded = _patched
+
+
 list_module("spinnaker_graph_front_end", ["*/examples/*"])
