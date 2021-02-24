@@ -2,6 +2,7 @@ sPyNNaker
 =========
 
 .. automodule:: spinnaker_graph_front_end
+   :noindex:
 
 Contents
 --------

@@ -3,16 +3,16 @@ SpiNNaker Graph Front End
 
 These pages document the main Manchester python code for the SpiNNakerGraphFrontEnd branch of the SpiNNaker_ Project which can be found on github_
 
-Alternative ways to run SpiNNaker_ are using PyNN_ or the older PyNN_07_ .
+An alternative way to run on SpiNNaker_ is using PyNN_.
 
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
 .. _github: https://github.com/SpiNNakerManchester
 .. _PyNN_ http://spinnaker8manchester.readthedocs.io/en/latest/index.html
-.. _PyNN_07: http://spinnaker7manchester.readthedocs.io/en/latest/index.html
 
 SpiNNUtils
 ----------
-This provides basic utility functions and classes to other parts of SpiNNaker's tooling. Nothing in here knows anything about SpiNNaker functionality.
+This provides basic utility functions and classes to other parts of SpiNNaker's
+tooling. Nothing in here knows anything about SpiNNaker functionality.
 
 .. toctree::
    :maxdepth: 3
@@ -28,7 +28,9 @@ SpiNNUtils_individual_docs_
 
 SpiNNMachine
 ------------
-This package is used to provide a Python representation of a SpiNNaker machine
+This package is used to provide a Python representation of a SpiNNaker machine.
+This contains the basic model of SpiNNaker hardware, as required by the other
+packages described below.
 
 .. toctree::
    :maxdepth: 3
@@ -42,10 +44,10 @@ SpiNNMachine_individual_docs_
 .. _SpiNNMachine_github: https://github.com/SpiNNakerManchester/SpiNNMachine
 .. _SpiNNMachine_individual_docs: http://spinnmachine.readthedocs.io
 
-
 PACMAN
 ------
-This package provides utilities for partitioning, placing a routing on a SpiNNaker machine
+This package provides utilities for partitioning, placing and routing a
+graph-based application on a SpiNNaker machine.
 
 .. toctree::
    :maxdepth: 3
@@ -59,10 +61,9 @@ PACMAN_individual_docs_
 .. _PACMAN_github: https://github.com/SpiNNakerManchester/PACMAN
 .. _PACMAN_individual_docs: http://pacman.readthedocs.io
 
-
 SpiNNMan
 --------
-This package provides utilities for interacting with a SpiNNaker machine.
+This package provides a transceiver for communicating with a SpiNNaker machine.
 
 .. toctree::
    :maxdepth: 3
@@ -79,7 +80,8 @@ SpiNNMan_individual_docs_
 
 DataSpecification
 -----------------
-This package provides utilities for specifying binary data algorithmically, and executing the specifications to produce the data.
+This package provides utilities for specifying binary data algorithmically,
+and executing the specifications to produce the data.
 
 .. toctree::
    :maxdepth: 3
@@ -95,7 +97,9 @@ DataSpecification_individual_docs_
 
 SpiNNFrontEndCommon
 -------------------
-This package provides functionality which are common to front ends that translate application level programs into executables which run on a SpiNNaker machine.
+This package provides functionality which are common to all front ends that
+translate application level programs into executables which run on a SpiNNaker
+machine.
 
 .. toctree::
    :maxdepth: 3
@@ -127,11 +131,13 @@ SpiNNakerGraphFrontEnd_individual_docs_
 
 spalloc
 -------
-Spalloc is a Python library and set of command-line programs for requesting SpiNNaker machines from a spalloc server.
+Spalloc is a Python client library and set of command-line programs for
+requesting SpiNNaker machines from a spalloc server.
 
-The spalloc module uses a different documentation style so is not included here.
+The ``spalloc`` module uses a different documentation style so is not included
+here.
 
-Their documenation can be found at: spalloc_readthedocs_
+Their documentation can be found at: spalloc_readthedocs_
 
 spalloc_github_
 
@@ -140,18 +146,19 @@ spalloc_github_
 
 spalloc_server
 --------------
-A SpiNNaker machine management application which manages the partitioning and allocation of large SpiNNaker machines
-into smaller fragments for many simultaneous users.
+A SpiNNaker machine management application which manages the partitioning and
+allocation of large SpiNNaker machines into smaller fragments for many
+simultaneous users.
 
-The spalloc_server module uses a different documentation style so is not included here.
+The ``spalloc_server`` module uses a different documentation style so is not
+included here.
 
-Their documenation can be found at: spalloc_server_readthedocs_
+Their documentation can be found at: spalloc_server_readthedocs_
 
 spalloc_server_github_
 
 .. _spalloc_server_github: https://github.com/SpiNNakerManchester/spalloc_server
 .. _spalloc_server_readthedocs: http://spalloc-server.readthedocs.io
-
 
 Indices and tables
 ------------------
