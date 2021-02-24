@@ -466,7 +466,7 @@ def list_module(module_name, filters=None):
     else:
         os.mkdir(module_name)
     source = os.path.dirname(__import__(module_name).__file__)
-    if not filters:
+    if filters is None:
         filters = _filtered_files(module_name, source)
     apidoc.main(['-o', module_name, source, *filters])
 
@@ -477,4 +477,4 @@ list_module("spinnman")
 list_module("pacman")
 list_module("data_specification")
 list_module("spinn_front_end_common")
-list_module("spinnaker_graph_front_end", ["*examples*"])
+list_module("spinnaker_graph_front_end", ["*/examples/*"])
