@@ -468,6 +468,9 @@ def list_module(module_name, filters=None):
     source = os.path.dirname(__import__(module_name).__file__)
     if filters is None:
         filters = _filtered_files(module_name, source)
+    else:
+        # apidoc tries to turn relative pathnames into absolute ones, wrongly
+        filters = (os.path.join(source, e) for e in filters)
     arguments = ['-o', module_name, source, *filters]
     print("arguments:", arguments)
     apidoc.main(arguments)
@@ -499,4 +502,4 @@ def _patched(root, excludes):
 apidoc.is_excluded = _patched
 
 
-list_module("spinnaker_graph_front_end", ["*/examples/*"])
+list_module("spinnaker_graph_front_end", ["examples/*"])
