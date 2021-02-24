@@ -471,6 +471,16 @@ def list_module(module_name, filters=None):
     apidoc.main(['-o', module_name, source, *filters])
 
 
+def setup(app):
+    def decide_to_skip(app, what, name, obj, skip, options):
+        if what == 'module' and "example" in name:
+            print("Last ditch: skipping", what, name)
+            return True
+        return skip
+
+    app.connect('autodoc-skip-member', decide_to_skip)
+
+
 list_module("spinn_utilities")
 list_module("spinn_machine")
 list_module("spinnman")
