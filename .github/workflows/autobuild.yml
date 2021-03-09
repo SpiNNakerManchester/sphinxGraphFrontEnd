@@ -1,6 +1,5 @@
 name: Trigger ReadTheDocs Periodic Build
 on:
-  push:
   schedule:
     - cron: '17 22 * * *'
 
@@ -15,8 +14,6 @@ jobs:
     steps:
     - name: Trigger
       run: |
-        curl --silent --show-error --fail \
-          -X POST -d "branches=$BRANCHES" -d "token=$TOKEN" \
-          https://readthedocs.org/api/v2/webhook/$PROJECT
+        curl --silent --show-error --fail -X POST -d "branches=$BRANCHES" -d "token=$TOKEN" https://readthedocs.org/api/v2/webhook/$PROJECT
       env:
         TOKEN: ${{ secrets.READTHEDOCS_TOKEN }}
