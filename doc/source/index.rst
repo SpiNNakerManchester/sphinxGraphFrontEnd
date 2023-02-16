@@ -1,3 +1,5 @@
 MOVED
 =====
-These docs are now part of Combined_ documentenation.
+These docs have moded to_.
+
+.. _to: http://spinnakermanchester.readthedocs.io/en/latest/index.html
